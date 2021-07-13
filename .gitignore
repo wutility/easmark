@@ -1,0 +1,8 @@
+node_modules/
+dist/
+
+regex.txt
+package-lock.json
+
+.cache
+.vscode

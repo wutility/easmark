@@ -1,0 +1,38 @@
+{
+  "name": "easmark",
+  "version": "1.0.0",
+  "description": "Easmark is lightweight, robust, and elegant markdown parser",
+  "browser": "build/index.js",
+  "main": "build/index.esm.js",
+  "module": "build/index.esm.js",
+  "scripts": {
+    "dev": "lite-server",
+    "watch": "rollup -w -c",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wutility/easmark.git"
+  },
+  "keywords": [
+    "markdown",
+    "markup",
+    "html",
+    "fast"
+  ],
+  "author": "Haikel Fazzani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wutility/easmark/issues"
+  },
+  "homepage": "https://github.com/wutility/easmark#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "rollup": "^2.52.7",
+    "rollup-plugin-terser": "^7.0.2",
+    "split-views": "^2.0.4"
+  },
+  "engines": {
+    "node": ">= 10"
+  }
+}
