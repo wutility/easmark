@@ -5,6 +5,9 @@ src/
 dist/
 tests/
 lib/
+testr/
+website/
+docs/
 
 .gitignore
 .cache
@@ -14,3 +17,4 @@ lib/
 index.html
 
 rollup.config.js
+package-lock.json

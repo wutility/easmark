@@ -29,8 +29,14 @@ body {
 
 textarea {margin: 0; resize: none; outline: none;}
 
-.gutter {cursor: col-resize;}
-.gutter:hover {background-color: black;}
+code {
+  border-radius: 7px;
+}
+
+.horizontal {flex-direction: row;}
+
+.sp-gutter {cursor: col-resize;}
+.sp-gutter:hover {background-color: black;}
 
 #markdown {
   background-color: #fff;

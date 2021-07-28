@@ -6,37 +6,31 @@ const bold = /\*\*(.*)\*\*/gim;
 const italics = /\*(.*)\*/gim;
 const codeblock = /```\s*([^]+?.*?[^]+?[^]+?)```/g;
 
-txtArea.value = localStorage.getItem('md') || `[
-  { h1: "JSON To Markdown" },
-  {
-    img: [
-      { title: "Some image", source: "https://example.com/some-image.png" }
-      , { title: "Another image", source: "https://example.com/some-image1.png" }
-      , { title: "Yet another image", source: "https://example.com/some-image2.png" }
-    ]
-  },
-  { h2: "Features" },
-  { blockquote: "A JSON to Markdown converter." },
-  {
-    ul: [
-      "Easy to use"
-      , "You can programatically generate Markdown content"
-      , "..."
-    ]
-  },
-  { h2: "How to contribute" },
-  {
-    ol: [
-      "Fork the project"
-      , "Create your branch"
-      , "Raise a pull request"
-    ]
-  }
-]`;
+txtArea.value = localStorage.getItem('md') || `# What is Lorem Ipsum?
+
+Lorem **Ipsum** ~~is~~ simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+
+### How To Use The Demo
+
+- **1111111** yyy.
+   - rrrr.
+   - vvvv.
+- Proin vulputate velit ultrices, feugiat magna quis, aliquet tellus.
+- Fusce lacinia sapien sit amet erat mollis, eu tincidunt nulla mattis.
+
+> sdsd
+> dfdf
+
+- [ ] 111111
+  - [ ] aaaaa
+  - [x] bbbbb
+- [x] 22222`;
+
+markdownEL.innerHTML = easmark(txtArea.value)
 
 function onConvert (e) {
   let str = localStorage.getItem('md') || e.target.value.trim();
-  markdown.innerHTML = easmark(str);
+  markdown.innerHTML = easmark(str);  
   hljs.highlightAll();
 }
 
@@ -63,3 +57,5 @@ txtArea.addEventListener('keyup', onKeyup, false);
 
 txtArea.addEventListener('scroll', select_scroll_1, false);
 markdownEL.addEventListener('scroll', select_scroll_2, false);
+
+hljs.highlightAll();
