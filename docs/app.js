@@ -26,11 +26,11 @@ Lorem **Ipsum** ~~is~~ simply dummy text of the printing and typesetting industr
   - [x] bbbbb
 - [x] 22222`;
 
-markdownEL.innerHTML = easmark(txtArea.value)
+markdownEL.innerHTML = window.easmark(txtArea.value)
 
 function onConvert (e) {
   let str = localStorage.getItem('md') || e.target.value.trim();
-  markdown.innerHTML = easmark(str);  
+  markdown.innerHTML = window.easmark(str);  
   hljs.highlightAll();
 }
 

@@ -2,9 +2,9 @@
   "name": "easmark",
   "version": "1.0.0",
   "description": "Easmark is lightweight, robust, and elegant markdown parser",
-  "browser": "build/index.js",
-  "main": "build/index.esm.js",
-  "module": "build/index.esm.js",
+  "browser": "build/index.umd.js",
+  "main": "build/index.js",
+  "module": "build/index.js",
   "scripts": {
     "dev": "lite-server",
     "watch": "rollup -w -c",

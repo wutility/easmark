@@ -10,7 +10,7 @@ body {
   margin: 0;
   background-color: rgb(243, 243, 243);
   font-size: 16px;
-  font-family: system-ui,helvetica,sans-serif,'Noto Sans';
+  font-family: 'Noto Sans';
 }
 
 .editor {
@@ -55,7 +55,7 @@ blockquote {
     padding: 1rem;
 }
 
-mark{
+.marked{
   padding: .125rem .25rem;
   border-radius: .25rem;
   background: #dddddf;

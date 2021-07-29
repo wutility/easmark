@@ -1,35 +1,22 @@
-function cleanUp (text) {
-  const boldItalic = /([*_]{1,3})((.|\n)+?)\1/g
-  const strike = /(~{1,3})((.|\n)+?)\1/g
+import utilBlock from './utilBlock'
+import utilInline from './utilInline'
+import cleanUp from './cleanUp'
 
-  text = text.replace(boldItalic, (_, stars, value) => {
-    return stars.length % 2 ? `<strong>${value}</strong>` : `<em>${value}</em>`
+function applyRegex (block, util) {
+  Object.keys(util.regex).forEach(reg => {
+    if (block.match(util.regex[reg])) block = util[reg](block, util.regex[reg])
   });
-
-  text = text.replace(strike, (_, stars, value) => {
-    return `<s>${value}</s>`
-  });
-
-  return text
+  return block
 }
 
-function easmark (text) {
-  let blocks = text.split(/\n\s*\n/);
+export default function easmark (text) {
+  let blocks = text.split(/\n\s*\n/)
   let result = []
 
   for (let block of blocks) {
-    Object.keys(utilBlocks.regex).forEach(reg => {
-      if (block.match(utilBlocks.regex[reg])) {
-        block = utilBlocks[reg](block, utilBlocks.regex[reg])
-      }
-    });
-
-    Object.keys(utilInline.regex).forEach(reg => {
-      if (block.match(utilInline.regex[reg])) {
-        block = utilInline[reg](block, utilInline.regex[reg])
-      }
-    });
-
+    block = applyRegex(block, utilInline)
+    block = applyRegex(block, utilBlock)
+    
     result.push(block)
   }
 

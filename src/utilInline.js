@@ -1,21 +1,20 @@
-var utilInline = {
+const utilInline = {
   regex: {
-    code: /(`{3,}|~{3,})\n? *(\S+)? *([\s\S]+?)\1/gm,
-    media: /[!&]?\[([!&]?\[.*?\)|[^\]]*?)]\((.*?)( .*?)?\)|(\w+:\/\/[$\-.+!*'()/,\w]+)/g // image or link or iframe
+    //url:/https?:\/\/[^\/?#\s]*(?:\/[^?#\s]*)?(?:\?[^#\s]*)?(?:#\S*)?/g,
+    heading: /^(#+)\s+(.*)/,
+    blockquote: /^>\s+.*/g,
+    media: /[!&]?\[([!&]?\[.*?\)|[^\]]*?)]\((.*?)( .*?)?\)|(\w+:\/\/[$\-.+!*'()/,\w]+)/g
   },
-  code (text, regex) {
-    return text.replace(regex, (_, backticks, lang, code) => {
-
-      code = code.replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#39;");
-
-      return `<pre><code class="language-${lang}">${code.replace(/^\n*\s+/g, '')}</code></pre>`
+  heading (text, regex) {
+    return text.replace(regex, (_, hash, value) => {
+      return `<h${hash.length}>${value}</h${hash.length}>`
     });
   },
-  media (text, regex) {    
-    console.log(text);
+  blockquote (text) {
+    text = text.replace(/\>\s+/g, '')
+    return `<blockquote>${text}</blockquote>`
+  }, 
+  media (text, regex) {
    return text.replace(regex, (match, title, src) => {
       return /^!/.test(match)
         ? `<img src="${src}" alt="${title}">\n`
@@ -26,13 +25,4 @@ var utilInline = {
   }
 }
 
-/**
- * line.replace(regex, (match, title, src) => {
-      console.log(match);
-      return /^!/.test(match)
-        ? `<img src="${src}" alt="${title}">`
-        : /^&/.test(match)
-          ? `<iframe src="${src}" title="${title}"></iframe>`
-          : `<a href="${src}">${title}</a>`
-    })
- */
+export default utilInline
