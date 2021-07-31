@@ -6,25 +6,45 @@ const bold = /\*\*(.*)\*\*/gim;
 const italics = /\*(.*)\*/gim;
 const codeblock = /```\s*([^]+?.*?[^]+?[^]+?)```/g;
 
-txtArea.value = localStorage.getItem('md') || `# What is Lorem Ipsum?
+txtArea.value = localStorage.getItem('md') || `# Heading 1
 
 Lorem **Ipsum** ~~is~~ simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
 
-### How To Use The Demo
+This is the *[Markdown Guide](https://www.markdownguide.org)*.
 
-- **1111111** yyy.
-   - rrrr.
-   - vvvv.
-- Proin vulputate velit ultrices, feugiat magna quis, aliquet tellus.
-- Fusce lacinia sapien sit amet erat mollis, eu tincidunt nulla mattis.
+- [ ] Task 1
+  - [ ] Task child 1
+  - [x] Task child 2
+- [x] Task 2
 
-> sdsd
-> dfdf
+## Heading 2
 
-- [ ] 111111
-  - [ ] aaaaa
-  - [x] bbbbb
-- [x] 22222`;
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
+
+#### Code
+
+## Heading 3
+
+- **First** item.
+   - item child 1.
+   - item child 2.
+- ***Second*** item.
+- *Third item*.
+- ~~Fourth item~~.
+
+> vulputate velit ultrices, feugiat magna quis, aliquet tellus
+> Fusce lacinia sapien sit amet erat mollis, eu tincidunt nulla mattis
+
+&[Google](https://google.com)
+
+I love supporting the **[EFF](https://eff.org)**.
+This is the *[Markdown Guide](https://www.markdownguide.org)*.
+
+See the section on [code](#code).`;
 
 markdownEL.innerHTML = window.easmark(txtArea.value)
 

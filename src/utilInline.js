@@ -7,7 +7,7 @@ const utilInline = {
   },
   heading (text, regex) {
     return text.replace(regex, (_, hash, value) => {
-      return `<h${hash.length}>${value}</h${hash.length}>`
+      return `<h${hash.length} id="${value.replace(/\s+/g, '-')}">${value}</h${hash.length}>`
     });
   },
   blockquote (text) {
