@@ -6,9 +6,8 @@
   "main": "build/index.js",
   "module": "build/index.js",
   "scripts": {
-    "dev": "lite-server",
     "watch": "rollup -w -c",
-    "build": "rollup -c"
+    "build": "rollup -c && cp build/index.umd.js docs/easmark.js"
   },
   "repository": {
     "type": "git",
@@ -27,10 +26,8 @@
   },
   "homepage": "https://github.com/wutility/easmark#readme",
   "devDependencies": {
-    "lite-server": "^2.6.1",
-    "rollup": "^2.52.7",
-    "rollup-plugin-terser": "^7.0.2",
-    "split-views": "^2.0.10"
+    "rollup": "^2.70.1",
+    "rollup-plugin-terser": "^7.0.2"
   },
   "engines": {
     "node": ">= 10"

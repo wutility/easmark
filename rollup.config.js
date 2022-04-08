@@ -1,7 +1,7 @@
 import { terser } from "rollup-plugin-terser";
 
 const pkg = require('./package.json')
-const banner = `/*! Easmark - v${pkg.version} | Copyright 2020 - Haikel Fazzani */\n`;
+const banner = `/*! Easmark - v${pkg.version} | Copyright 2022 - Haikel Fazzani */\n`;
 
 export default {
   input: 'src/easmark.js',
@@ -10,7 +10,7 @@ export default {
       name: 'easmark',
       format: 'umd',
       file: 'build/index.umd.js',
-      sourcemap: true,
+      sourcemap: false,
       banner
     },
     {
@@ -20,6 +20,6 @@ export default {
     }
   ],
   plugins: [
-    //terser()
+    terser()
   ]
 };

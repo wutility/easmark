@@ -2,9 +2,11 @@ node_modules/
 dist/
 testr/
 website/
+build/
 
 regex.txt
 package-lock.json
+yarn.lock
 
 .cache
 .vscode
